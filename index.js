@@ -1,13 +1,12 @@
 // // JavaScript File
 /*global startButton*/
-startButton.onclick = getNum;
 var userNum;
-function getNum() {
+
+var getNum = function() {
     userNum = prompt('Num:');
     fibcicle(userNum);
-    fibrec(userNum);
+    fibrec(userNum, "recursionResult");
 }
-
 
 var fibcicle = function (userNum) {
     var firctCicleNum = 0;
@@ -22,24 +21,25 @@ var fibcicle = function (userNum) {
         tempCicleNum;
 }
 
-
-var fibrec = function (userNum){
+var fibrec = function (userNum, id) {
     var fibStartCount = 3;
     var tempRecursionNum;
     var firstRecursionNum = 0;
     var secondRecursionNum = 1;
-    function _fibrec(userNum) {
+    var _fibrec = function (userNum, id) {
     
         tempRecursionNum = firstRecursionNum + secondRecursionNum;
         firstRecursionNum = secondRecursionNum;
         secondRecursionNum = tempRecursionNum;
         fibStartCount++;
         if (fibStartCount <= userNum) {
-            _fibrec(userNum);
+            _fibrec(userNum, id);
         }
     
-        document.getElementById("recursionResult").innerHTML = "Recursion res: " +
+        document.getElementById(id).innerHTML = "Recursion res: " +
             tempRecursionNum;
     }
-    _fibrec(userNum);
+    _fibrec(userNum, id);
 }
+
+startButton.onclick = getNum;

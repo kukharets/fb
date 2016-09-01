@@ -33,7 +33,6 @@ function fibrec(userNum) {
     firstRecursionNum = secondRecursionNum;
     secondRecursionNum = tempRecursionNum;
     fibStartCount++;
-    console.log(firstRecursionNum, secondRecursionNum, tempRecursionNum, fibStartCount, userNum);
     if (fibStartCount <= userNum) {
         fibrec(userNum);
     }
